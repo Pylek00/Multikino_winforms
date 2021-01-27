@@ -1,0 +1,13 @@
+E:\C++ Projekty\Multikino_Winforms\bin\Debug\Multikino_Winforms.exe.config
+E:\C++ Projekty\Multikino_Winforms\bin\Debug\Multikino_Winforms.exe
+E:\C++ Projekty\Multikino_Winforms\bin\Debug\Multikino_Winforms.pdb
+E:\C++ Projekty\Multikino_Winforms\obj\Debug\Multikino_Winforms.csprojAssemblyReference.cache
+E:\C++ Projekty\Multikino_Winforms\obj\Debug\Multikino_Winforms.Properties.Resources.resources
+E:\C++ Projekty\Multikino_Winforms\obj\Debug\Multikino_Winforms.csproj.GenerateResource.cache
+E:\C++ Projekty\Multikino_Winforms\obj\Debug\Multikino_Winforms.csproj.CoreCompileInputs.cache
+E:\C++ Projekty\Multikino_Winforms\obj\Debug\Multikino_Winforms.exe
+E:\C++ Projekty\Multikino_Winforms\obj\Debug\Multikino_Winforms.pdb
+E:\C++ Projekty\Multikino_Winforms\obj\Debug\Multikino_Winforms.CELogowanie.resources
+E:\C++ Projekty\Multikino_Winforms\obj\Debug\Multikino_Winforms.CEokno_Glowne.resources
+E:\C++ Projekty\Multikino_Winforms\obj\Debug\Multikino_Winforms.Forms.CEwybierz_miejsca.resources
+E:\C++ Projekty\Multikino_Winforms\obj\Debug\Multikino_Winforms.Forms.CEwybor_miejsca_klient.resources
