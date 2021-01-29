@@ -8,31 +8,27 @@ using Multikino_Winforms.Forms;
 
 namespace Multikino_Winforms
 {
-    class CCentrum_Wszechswiata : ApplicationContext
+    class CCentrum_Wszechswiata 
     {
         
 
-        public CELogowanie ekran_logowania;
-        private CEokno_Glowne ekran_glowny;
-        private CEwybierz_miejsca ekran_miejsca_kasjer;
-        private CEwybor_miejsca_klient ekran_miejsca_klient;
+        private CELogowanie ekran_logowania;
+        
 
         public CCentrum_Wszechswiata()
         {
-            ekran_logowania = new CELogowanie();
-            ekran_glowny = new CEokno_Glowne();
-            ekran_glowny.Hide();
-            ekran_miejsca_kasjer = new CEwybierz_miejsca();
-            ekran_miejsca_kasjer.Hide();
-            ekran_miejsca_klient = new CEwybor_miejsca_klient();
-            ekran_miejsca_klient.Hide();
+            
+            
+        }
+         ~CCentrum_Wszechswiata()
+        {
 
-            this.run();
         }
         public void run()
         {
-            
-            
+
+            Application.Run(ekran_logowania);
+
 
         }
         public bool stop_this()

@@ -21,5 +21,11 @@ namespace Multikino_Winforms.Forms
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ObslugaOkien.idzDo("Okno Glowne Kasjera");
+        }
     }
 }

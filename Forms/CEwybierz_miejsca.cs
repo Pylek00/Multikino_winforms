@@ -14,15 +14,22 @@ namespace Multikino_Winforms.Forms
 {
     public partial class CEwybierz_miejsca : Form
     {
-
-
+        private CEwybor_miejsca_klient ekran_wyb_klient;
+        private int liczbaBiletow;
+        private int aktualnaLiczbaBiletow;
         private Button[] btn = new Button[50];
 
-        public CEwybierz_miejsca()
+        public CEwybierz_miejsca(int liczba_biletow)
         {
             InitializeComponent();
+            this.liczbaBiletow = liczba_biletow;
+            this.aktualnaLiczbaBiletow = liczba_biletow;
         }
 
+        ~CEwybierz_miejsca()
+        {
+            //this.ekran_wyb_klient.Close();
+        }
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -32,10 +39,11 @@ namespace Multikino_Winforms.Forms
         {
             buttonArray();
 
-            //if (cEwybierz_miejsca.IsDisposed & cEwybor_miejsca_klient.IsDisposed)
-            //{
-            //    this.Visible = true;
-            //}
+            ekran_wyb_klient = new CEwybor_miejsca_klient(this.btn,liczbaBiletow);
+
+            ekran_wyb_klient.Visible = true;
+
+            label5.Text = liczbaBiletow.ToString();
 
         }
 
@@ -57,6 +65,7 @@ namespace Multikino_Winforms.Forms
                 btn[i].BackColor = System.Drawing.Color.Green;
                 btn[i].Text = c.ToString()+(j).ToString();
                 btn[i].Click += btn_Click;
+                
                 flowLayoutPanel1.Controls.Add(btn[i]);
                 j++;
             }
@@ -64,27 +73,48 @@ namespace Multikino_Winforms.Forms
         }
         public void btn_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            if (btn.BackColor == System.Drawing.Color.Green)
-            {
-                btn.BackColor = System.Drawing.Color.Blue;
-            }
-            else if (btn.BackColor == System.Drawing.Color.Blue)
-            {
-                btn.BackColor = System.Drawing.Color.Green;
-            }
             
+
+                Button btn1 = (Button)sender;
+                if (btn1.BackColor == System.Drawing.Color.Green & aktualnaLiczbaBiletow >0)
+                {
+                    btn1.BackColor = System.Drawing.Color.Blue;
+                    aktualnaLiczbaBiletow--;
+                }
+                else if (btn1.BackColor == System.Drawing.Color.Blue & aktualnaLiczbaBiletow < liczbaBiletow)
+                {
+                    btn1.BackColor = System.Drawing.Color.Green;
+                    aktualnaLiczbaBiletow++;
+                }
+                Console.WriteLine("Button clicked");
+                ekran_wyb_klient.updateBtnColor(this.btn);
+
+                
+                label5.Text = aktualnaLiczbaBiletow.ToString();
+
         }
+    
 
 
         private void btn_cofnij_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
+            ekran_wyb_klient.Close();
+            ObslugaOkien.idzDo("Okno Glowne Kasjera");
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void btn_dalej_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ekran_wyb_klient.Close();
+
+        }
+
+        
     }
 }

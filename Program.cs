@@ -26,8 +26,7 @@ namespace Multikino_Winforms
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CCentrum_Wszechswiata());
-            
+            Application.Run(new CELogowanie());
             
 
         }

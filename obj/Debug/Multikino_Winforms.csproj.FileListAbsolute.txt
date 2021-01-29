@@ -11,3 +11,7 @@ E:\C++ Projekty\Multikino_Winforms\obj\Debug\Multikino_Winforms.CELogowanie.reso
 E:\C++ Projekty\Multikino_Winforms\obj\Debug\Multikino_Winforms.CEokno_Glowne.resources
 E:\C++ Projekty\Multikino_Winforms\obj\Debug\Multikino_Winforms.Forms.CEwybierz_miejsca.resources
 E:\C++ Projekty\Multikino_Winforms\obj\Debug\Multikino_Winforms.Forms.CEwybor_miejsca_klient.resources
+E:\C++ Projekty\Multikino_Winforms\obj\Debug\Multikino_Winforms.Forms.CERealizacja_rezerwacji.resources
+E:\C++ Projekty\Multikino_Winforms\obj\Debug\Multikino_Winforms.Forms.CEzwrot.resources
+E:\C++ Projekty\Multikino_Winforms\bin\Debug\Database.mdf
+E:\C++ Projekty\Multikino_Winforms\bin\Debug\Database_log.ldf

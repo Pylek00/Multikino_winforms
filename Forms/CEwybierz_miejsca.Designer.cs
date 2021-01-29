@@ -41,6 +41,8 @@ namespace Multikino_Winforms.Forms
             this.btnWprowadzIDklienta = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -80,6 +82,7 @@ namespace Multikino_Winforms.Forms
             this.btn_dalej.TabIndex = 5;
             this.btn_dalej.Text = "Zrealizuj Platnosc";
             this.btn_dalej.UseVisualStyleBackColor = true;
+            this.btn_dalej.Click += new System.EventHandler(this.btn_dalej_Click);
             // 
             // textBox1
             // 
@@ -123,11 +126,32 @@ namespace Multikino_Winforms.Forms
             this.label3.TabIndex = 12;
             this.label3.Text = "Cena biletow";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(298, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(237, 17);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Pozostala liczba miejsc do wybrania:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(538, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(12, 17);
+            this.label5.TabIndex = 14;
+            this.label5.Text = " ";
+            
+            // 
             // CEwybierz_miejsca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(690, 606);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.btnWprowadzIDklienta);
@@ -156,5 +180,7 @@ namespace Multikino_Winforms.Forms
         private Button btnWprowadzIDklienta;
         private RichTextBox richTextBox1;
         private Label label3;
+        private Label label4;
+        private Label label5;
     }
 }
