@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Multikino_Winforms.Forms
@@ -90,6 +91,7 @@ namespace Multikino_Winforms.Forms
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(216, 22);
             this.textBox1.TabIndex = 8;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
             // 
@@ -108,6 +110,7 @@ namespace Multikino_Winforms.Forms
             this.btnWprowadzIDklienta.TabIndex = 10;
             this.btnWprowadzIDklienta.Text = "Wprowadz";
             this.btnWprowadzIDklienta.UseVisualStyleBackColor = true;
+            this.btnWprowadzIDklienta.Click += new System.EventHandler(this.btnWprowadzIDklienta_Click);
             // 
             // richTextBox1
             // 
@@ -143,7 +146,6 @@ namespace Multikino_Winforms.Forms
             this.label5.Size = new System.Drawing.Size(12, 17);
             this.label5.TabIndex = 14;
             this.label5.Text = " ";
-            
             // 
             // CEwybierz_miejsca
             // 
@@ -166,6 +168,11 @@ namespace Multikino_Winforms.Forms
             this.Load += new System.EventHandler(this.CEwybierz_miejsca_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
         }
 

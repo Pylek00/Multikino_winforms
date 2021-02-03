@@ -18,12 +18,22 @@ namespace Multikino_Winforms.Forms
         private int liczbaBiletow;
         private int aktualnaLiczbaBiletow;
         private Button[] btn = new Button[50];
+        private bool wybrano_stu, wybrano_sen;
+        private string l_nor,  l_sen,  l_stu;
 
-        public CEwybierz_miejsca(int liczba_biletow)
+        public CEwybierz_miejsca(int l_nor, int l_sen, int l_stu)
         {
             InitializeComponent();
-            this.liczbaBiletow = liczba_biletow;
-            this.aktualnaLiczbaBiletow = liczba_biletow;
+            this.l_nor = l_nor.ToString();
+            this.l_sen = l_sen.ToString();
+            this.l_stu = l_stu.ToString();
+            if (l_sen != 0) wybrano_sen = true;
+            if (l_stu != 0) wybrano_stu = true;
+
+            this.liczbaBiletow = l_nor + l_sen + l_stu;
+            this.aktualnaLiczbaBiletow = l_nor + l_sen + l_stu;
+            richTextBox1.AppendText(Sprzedaz.oblicz_cene(this.l_nor, this.l_sen, this.l_stu));
+            
         }
 
         ~CEwybierz_miejsca()
@@ -62,14 +72,22 @@ namespace Multikino_Winforms.Forms
                 btn[i] = new Button();
                 btn[i].Size = new Size(40,40);
 
-                btn[i].BackColor = System.Drawing.Color.Green;
+                if (Sprzedaz.czy_miejsce_wolne(i))
+                {
+                    btn[i].Enabled = true;
+                    btn[i].BackColor = System.Drawing.Color.Green;
+                }
+                else
+                {
+                    btn[i].BackColor = System.Drawing.Color.Red;
+                    btn[i].Enabled = false;
+                }
                 btn[i].Text = c.ToString()+(j).ToString();
                 btn[i].Click += btn_Click;
                 
                 flowLayoutPanel1.Controls.Add(btn[i]);
                 j++;
-            }
-            
+            }   
         }
         public void btn_Click(object sender, EventArgs e)
         {
@@ -94,8 +112,6 @@ namespace Multikino_Winforms.Forms
 
         }
     
-
-
         private void btn_cofnij_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -110,11 +126,32 @@ namespace Multikino_Winforms.Forms
 
         private void btn_dalej_Click(object sender, EventArgs e)
         {
+            ObslugaOkien.idzDo("Okno Glowne Kasjera");
             this.Close();
             ekran_wyb_klient.Close();
 
         }
 
-        
+        private void btnWprowadzIDklienta_Click(object sender, EventArgs e)
+        {
+            if(Sprzedaz.sprawdz_poprawnosc_podanego_id(textBox1.Text.ToString()))
+            {
+                if(Sprzedaz.sprawdz_czy_przysluguje_znizka(wybrano_sen, wybrano_stu))
+                {
+                    richTextBox1.Clear();
+                    richTextBox1.AppendText(Sprzedaz.oblicz_cene(this.l_nor, this.l_sen, this.l_stu));
+                    //komunikat przyznano znizke
+                }
+                else
+                {
+                    //jakis komunikat w stylu nie przysluguje znizka, klienice co oszukujesz, wypad
+                }
+            }
+            else
+            {
+                //jakiś komunika typu  nie ma takiego klienta
+            }
+        }
+
     }
 }

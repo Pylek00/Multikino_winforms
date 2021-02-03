@@ -37,8 +37,5 @@ namespace Multikino_Winforms
             }
         }
 
-
-
-
     }
 }

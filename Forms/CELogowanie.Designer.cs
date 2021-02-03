@@ -80,6 +80,7 @@
             this.THaslo.Name = "THaslo";
             this.THaslo.Size = new System.Drawing.Size(156, 22);
             this.THaslo.TabIndex = 4;
+            this.THaslo.UseSystemPasswordChar = true;
             this.THaslo.TextChanged += new System.EventHandler(this.THaslo_TextChanged);
             // 
             // LInformacje_logowania

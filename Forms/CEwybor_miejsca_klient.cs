@@ -50,6 +50,7 @@ namespace Multikino_Winforms.Forms
             }
             label5.Text = liczba_miejsc.ToString();
         }
+
         public void updateBtnColor(Button[] btnAr)
         {
             int size = btnAr.Length;

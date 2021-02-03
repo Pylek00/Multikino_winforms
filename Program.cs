@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Multikino_Winforms
-
-
 {
     static class Program
     {
@@ -21,14 +19,10 @@ namespace Multikino_Winforms
         [STAThread]
         static void Main()
         {
-
-            
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CELogowanie());
-            
-
+            CCentrum_Wszechswiata centr = new CCentrum_Wszechswiata();
+            centr.run();
         }
     }
 }

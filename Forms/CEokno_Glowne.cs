@@ -24,6 +24,16 @@ namespace Multikino_Winforms
             InitializeComponent();
             this.FormClosing += Form_FormClosing;
             totalSeats = 50;
+
+            string[] t = Sprzedaz.przeszukaj_seanse(DateTime.Now.ToString("yyyy-MM-dd hh:mm"));
+
+            for (int i = 0; i < t.Length; i++)
+            {
+                Lista_seansow.Items.Add(t[i]);
+            }
+            Lista_seansow.SetSelected(0,true);
+   
+
         }
         ~CEokno_Glowne()
         {
@@ -58,27 +68,40 @@ namespace Multikino_Winforms
                 comboSeniorskie.Items.Add(i.ToString());
             }
 
-
-
         }
 
         private void Bwybor_miejsc_Click(object sender, EventArgs e)
         {
-            this.ekran_wyb_kasjer = new CEwybierz_miejsca(getLiczbaBiletow());
-              
-            this.Visible = false;
-            ekran_wyb_kasjer.Show();
-            
-            
-            
+            if(Lista_seansow.SelectedItem.ToString().Equals("Brak seansów w wybranum dniu"))
+            { 
+                ///tutaj trzeba wstawić jakiś komunikat typu "Nie wybrano seansów"
+            }
+            else if (Sprzedaz.pobierz_dane_o_seansie(Lista_seansow.SelectedIndex.ToString(), (comboNormalne.Text.ToString()),
+                (comboSeniorskie.Text.ToString()), (comboStudenckie.Text.ToString())) == false)
+                 {
+                    ///tutaj trzeba wstawić jakiś komunikat typu "Nie ma wystarczającej ilosci miejsc"
+                 }
+                else
+                {
+                    this.ekran_wyb_kasjer = new CEwybierz_miejsca(int.Parse(comboNormalne.Text), int.Parse(comboSeniorskie.Text), int.Parse(comboStudenckie.Text));
+                    this.Visible = false;
+                    ekran_wyb_kasjer.Show();
+                }
+             
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            
-        }
+            Lista_seansow.Items.Clear();
+            string[] t = Sprzedaz.przeszukaj_seanse(dateTimePicker1.Value.ToString("yyyy-MM-dd"));
 
-        
+            for (int i = 0; i < t.Length; i++)
+            {
+                Lista_seansow.Items.Add(t[i]);
+            }
+            if(t.Length<=0) Lista_seansow.Items.Add(t[0]);
+            Lista_seansow.SetSelected(0, true);
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -95,7 +118,6 @@ namespace Multikino_Winforms
         void Form_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
-
         }
 
         private void Bprzyjmij_zwrot_Click(object sender, EventArgs e)
@@ -156,10 +178,6 @@ namespace Multikino_Winforms
                 comboStudenckie.Items.Add(i.ToString());
             }
 
-        }
-        public int getLiczbaBiletow()
-        {
-            return int.Parse(comboSeniorskie.Text) + int.Parse(comboNormalne.Text) + int.Parse(comboStudenckie.Text);
         }
     }
 
